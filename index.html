@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lista de Tarefas - Início</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="panel-style.css">
+    </head>
+    <body>
+        <div class="notification"></div>
+
+        <div class="container">
+            <div class="container-modal">
+                <div class="modal-alertCard">
+                    <div class="modal-description">
+                        <h3 class="alert-title"></h3>
+                        <p class="alert-text"></p>
+                    </div>
+                    <div class="container-modalButtons">
+                        <button class="modalButtons back" value="false">Voltar</button>
+                        <button class="modalButtons continue" value="true">Seguir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-task">
+                <input
+                    type="text"
+                    class="input-newTask"
+                    placeholder="Adicione uma nova tarefa"
+                    maxlength="35"
+                />
+                <button class="add-newTask">Adicionar</button>
+
+                <div class="add-taskInfos">
+                    <form>
+                        <label for="date">Para Dia:</label>
+                        <input type="date" class="task-date" id="date" />
+                        <br />
+                        <label for="hour">Hora:</label>
+                        <div class="taskHour-container">
+                            <div class="task-hour">
+                                <input
+                                    type="number"
+                                    placeholder="00"
+                                    disabled
+                                />
+                                <span>:</span>
+                                <input
+                                    type="number"
+                                    placeholder="00"
+                                    disabled
+                                />
+                            </div>
+                            <select name="turno" class="turno" disabled>
+                                <option value="am">AM</option>
+                                <option value="pm">PM</option>
+                            </select>
+                        </div>
+                    </form>
+                    <textarea
+                        class="description"
+                        id="description"
+                        cols="40"
+                        rows="2"
+                        placeholder="Uma breve descrição da sua tarefa. (Opcional)"
+                        maxlength="87"
+                    ></textarea>
+                    <div class="max-char">0/87</div>
+                </div>
+            </div>
+
+            <div class="recent-taskList empty">
+                <div class="wrapper">
+                    <div class="list">Aqui será inserido as tarefas</div>
+                </div>
+                <span class="material-symbols-rounded textVazio">cancel_presentation</span>
+                <button class="expand" value="on">Ver Tudo <span class="material-symbols-rounded">keyboard_double_arrow_down</span></button>
+            </div>
+
+            <div class="panel-container">
+                <div class="tabs-container">
+                    <button class="tab-button active">Pendentes</button>
+                    <button class="tab-button hidden">Concluídos</button>
+                    <button class="expand" value="off">
+                        <span class="material-symbols-rounded">keyboard_double_arrow_up</span>
+                        Ver Menos
+                    </button>
+                </div>
+                <div class="panel-taskList">
+                    <div class="pending-taskList">
+                        <div class="pending">Aqui será inserido as tarefas - esta div irá ter scroll</div>
+                        <span class="material-symbols-rounded textVazio">cancel_presentation</span>
+                    </div>
+                    <div class="checked-taskList ">
+                        <div class="checked">
+                            Aqui será inserido as tarefas - esta div irá ter scroll
+                        </div>
+                        <span class="material-symbols-rounded textVazio">cancel_presentation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description-modal">
+                <button class="close-description-modal">+</button>
+                <p class="head-title">Nome da Tarefa</p>
+                <p class="head-date">Data e Hora</p>
+                <p>Status - <span class="head-status">Expirou</span></p>
+                <div class="task-description">
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+        <script src="save&load.js"></script>
+        <script src="panelScript.js"></script>
+    </body>
+</html>

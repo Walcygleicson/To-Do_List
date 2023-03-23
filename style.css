@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    color: rgba(13, 44, 27, 0.841);
+}
+
+:root {
+    --box-backgroundColor: rgb(247, 247, 247);
+    --redButton-backgroundColor: rgba(204, 31, 11, 0.785);
+}
+
+.material-symbols-rounded {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+.container {
+    display: grid;
+    row-gap: 4rem;
+}
+
+body {
+    background: linear-gradient(
+        130deg,
+        rgba(4, 63, 36, 0.693),
+        rgba(6, 78, 39, 0.533)
+    );
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.new-task {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: var(--box-backgroundColor);
+    box-shadow: 5px 5px 8px rgba(0, 12, 7, 0.363);
+    border-radius: 5px;
+    width: 410px;
+}
+
+.new-task::before {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    box-shadow: 5px 5px 8px rgba(0, 12, 7, 0.363);
+    content: "Lista de Tarefas";
+    background: rgb(247, 247, 247);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.input-newTask {
+    outline: none;
+    color: rgb(13, 44, 27);
+    border: 1px solid rgba(9, 60, 33, 0.533);
+    font-size: 1em;
+    text-indent: 0.3rem;
+    border-radius: 0.2em;
+    width: 75%;
+    padding: 0.3em;
+}
+
+.add-newTask {
+    color: white;
+    background: rgb(5, 106, 74);
+    border: none;
+    border-radius: 3px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.add-newTask:hover,
+.buttons > .check:hover {
+    background: rgb(2, 94, 52);
+}
+.add-newTask:active,
+.buttons > .check:active {
+    background: rgb(5, 106, 74);
+}
+
+.recent-taskList {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1em 1em 1.5em 1em;
+    background: rgb(247, 247, 247);
+    box-shadow: 5px 5px 8px rgba(0, 12, 7, 0.363);
+    border-radius: 0 5px 5px 5px;
+    width: 410px;
+}
+
+.recent-taskList > .wrapper {
+    overflow: hidden;
+    max-height: 39vh;
+}
+
+.recent-taskList .list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+
+
+.empty::before {
+    content: "Nenhuma Tarefa Recente";
+    position: absolute;
+    bottom: calc(100% + 3px);
+    z-index: -1;
+    left: 0;
+    box-shadow: 5px 5px 8px rgba(0, 12, 7, 0.363);
+    background: rgb(247, 247, 247);
+    border-radius: 5px 5px 5px 0px;
+    padding: 2px 10px;
+}
+
+.added::before {
+    content: "Tarefas Recentes";
+    position: absolute;
+    bottom: calc(100% + 3px);
+    z-index: -1;
+    left: 0;
+    box-shadow: 5px 5px 8px rgba(0, 12, 7, 0.363);
+    background: rgb(247, 247, 247);
+    border-radius: 5px 5px 5px 0px;
+    padding: 2px 10px;
+}
+
+.added > .textVazio {
+    display: none;
+}
+
+.empty > .textVazio {
+    border: 1px solid rgba(9, 60, 33, 0.297);
+    border-radius: 3px;
+    width: 100%;
+    padding: .3em 0;
+    background-color: white;
+    color: rgba(216, 212, 212, 0.844);
+    text-align: center;
+    font-stretch: condensed;
+}
+
+
+.toDo-task {
+    background: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.td-taskContent {
+    cursor: pointer;
+    border: 1px solid rgba(9, 60, 33, 0.533);
+    padding: 0.3em;
+    border-radius: 0.2em;
+    width: 90%;
+}
+
+.td-taskContent:hover {
+    background: rgba(242, 254, 252, 0.504);
+}
+
+.td-taskContent:active {
+    border-color: rgba(9, 60, 33, 0.268);
+}
+
+.head-title {
+    font-weight: bold;
+    padding-bottom: 2px;
+}
+
+.head-date {
+    font-size: 0.8rem;
+    padding-top: 2px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.buttons > button {
+    cursor: pointer;
+    height: 48%;
+    width: 2rem;
+    border: none;
+    color: rgb(245, 245, 245);
+    font-size: 1em;
+    border-radius: 2px;
+}
+
+.buttons > .delete {
+    background: rgba(204, 31, 11, 0.785);
+}
+
+.buttons > .delete:hover {
+    background: rgba(204, 30, 11, 0.859);
+}
+
+.buttons > .delete:active {
+    background: rgba(204, 30, 11, 0.785);
+}
+
+.buttons > .check {
+    background: rgb(5, 106, 74);
+}
+
+/*  */
+
+.add-taskInfos {
+    position: absolute;
+    display: none;
+    top: calc(100% + 3px);
+    left: 0;
+    z-index: 2;
+    padding: 1em;
+    background: rgb(247, 247, 247);
+    box-shadow: 5px 5px 8px rgba(0, 12, 7, 0.363);
+    border-radius: 5px;
+    width: 410px;
+}
+
+.add-taskInfos > textarea {
+    resize: none;
+    outline: none;
+    padding: 0.3rem;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid rgba(9, 60, 33, 0.533);
+}
+
+.max-char {
+    position: absolute;
+    font-size: 0.58em;
+    font-weight: bold;
+    right: 5%;
+    bottom: 0.2rem;
+}
+
+.task-date {
+    width: 6.5rem;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    padding: 0.1rem;
+    color: white;
+    background: rgb(5, 106, 74);
+}
+
+.task-date::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.taskHour-container {
+    width: 6.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskHour-container > select {
+    cursor: pointer;
+    background: rgb(5, 106, 74);
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    color: white;
+}
+
+.taskHour-container > select > option {
+    background: white;
+    border: 1px solid rgba(9, 60, 33, 0.533);
+}
+.taskHour-container > select > option:hover {
+    background: rgb(215, 214, 214);
+    color: black;
+}
+
+.taskHour-container > select:focus {
+    background: rgb(2, 94, 52);
+}
+
+.task-hour > input::-webkit-inner-spin-button {
+    display: none;
+}
+.task-hour {
+    background: rgba(5, 106, 74, 0.699);
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    border-radius: 3px;
+}
+
+.task-hour > * {
+    height: 100%;
+    color: white;
+    text-align: center;
+}
+.task-hour > input {
+    padding: 2px 0;
+    width: 50%;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+.task-hour > input::placeholder {
+    color: white;
+}
+
+/* MODAL ALERT */
+
+.container-modal {
+    display: none;
+    justify-content: center;
+    padding-top: 10%;
+    z-index: 3;
+    position: absolute;
+    backdrop-filter: blur(1px) contrast(78%);
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-alertCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em 1em 1.5em 1em;
+    background: rgb(247, 247, 247);
+    box-shadow: 5px 5px 8px rgba(0, 12, 7, 0.399);
+    border-radius: 5px;
+    width: 300px;
+    height: 200px;
+}
+.modal-description {
+    box-shadow: 0px 0px 3px rgba(0, 12, 7, 0.303);
+    border-radius: 3px;
+    text-align: justify;
+    background: white;
+    padding: 0.5rem 1rem;
+    height: 65%;
+}
+
+.modal-description > h3 {
+    text-align: center;
+    padding-bottom: 4px;
+}
+
+.container-modalButtons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modalButtons {
+    border: none;
+    padding: 6px 18px;
+    color: white;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+
+.back {
+    background: rgba(204, 31, 11, 0.785);
+}
+
+.back:hover {
+    background: rgba(204, 30, 11, 0.859);
+}
+.back:active {
+    background: rgba(204, 31, 11, 0.785);
+}
+
+.continue {
+    background: rgb(5, 106, 74);
+}
+
+.continue:hover {
+    background: rgb(2, 94, 52);
+}
+.continue:active {
+    background: rgb(5, 106, 74);
+}
+
+.expand {
+    cursor: pointer;
+    position: absolute;
+    border: none;
+    outline: none;
+    color: rgba(8, 124, 95, 0.759);
+    right: 0;
+    bottom: -1.2em;
+    display: flex;
+    padding: 5px 17px 5px 10px;
+    background: rgb(247, 247, 247);
+    box-shadow: 5px 5px 4px rgba(0, 12, 7, 0.218);
+    border-radius: 0 0 5px 5px;
+    text-decoration: none;
+    font-size: .8rem;
+}
+
+.expand > span {
+    color: rgb(8, 124, 95);
+    font-size: 1em;
+    position: absolute;
+    right: 3px;
+    bottom: .33rem;
+}
+
+
+.expand:hover, .expand:hover > span{
+    color: rgb(126, 80, 149);
+}
+
+.notification {
+    z-index: 2;
+    position: absolute;
+    top: -6%;
+    color: rgb(0, 15, 15);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 5px 5px 8px rgba(0, 12, 7, 0.363);
+    background: var(--box-backgroundColor);
+    padding: .5em 3em;
+}
+
+
+
+ .expired-task > div:first-child {
+    background: rgba(255, 0, 0, 0.129);
+    border-color: rgba(155, 7, 7, 0.268);
+ }
+
+ .expired-task .check {
+    pointer-events: none;
+    background: rgba(190, 188, 188, 0.378);
+    color: rgb(192, 187, 187);
+ }
+
+.expired-notifi {
+    background: rgb(254, 228, 228);
+}
+
+.expired-notifi > span {
+    color: rgb(212, 21, 21);
+}
