@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@media (max-width: 500px) {
+    .new-task, .recent-taskList, .panel-taskList, .add-taskInfos, .description-modal {
+        width: 97vw;
+    }
+}
+
+
+@media (orientation: landscape) and (max-width: 900px) {
+    body {
+        padding-top: 100px;
+        height: 140vh;
+    }
+}
