@@ -466,13 +466,11 @@ function showNotificationBar(message) {
     const notfi = document.querySelector('.notification')
     permistion = false
     notfi.classList.remove('expired-notifi')
-    notfi.style.display = 'block'
     notfi.style.transition = '.4s'
     notfi.textContent = message
     notfi.style.top = 0
     setTimeout(() => {
         notfi.style.top = '-35px'
-        notfi.style.display = 'none'
         permistion = true
     }, 2000)
 }
